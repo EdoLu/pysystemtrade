@@ -1,3 +1,4 @@
+"""
 from sysdata.parquet.parquet_adjusted_prices import parquetFuturesAdjustedPricesData
 from sysdata.parquet.parquet_capital import parquetCapitalData
 from sysdata.parquet.parquet_futures_per_contract_prices import (
@@ -13,8 +14,8 @@ from sysdata.parquet.parquet_historic_strategy_positions import (
 from sysdata.parquet.parquet_historic_contract_positions import (
     parquetContractPositionData,
 )
-
 """
+
 from sysdata.arctic.arctic_adjusted_prices import arcticFuturesAdjustedPricesData
 from sysdata.arctic.arctic_capital import arcticCapitalData
 from sysdata.arctic.arctic_futures_per_contract_prices import arcticFuturesContractPriceData
@@ -24,7 +25,7 @@ from sysdata.arctic.arctic_optimal_positions import arcticOptimalPositionData
 from sysdata.arctic.arctic_spreads import arcticSpreadsForInstrumentData
 from sysdata.arctic.arctic_historic_contract_positions import arcticContractPositionData
 from sysdata.arctic.arctic_historic_strategy_positions import arcticStrategyPositionData
-"""
+
 
 
 from sysdata.mongodb.mongo_futures_contracts import mongoFuturesContractData
@@ -67,6 +68,7 @@ CONTRACT_HISTORIC_ORDERS_DATA = "contract_historic_orders_data"
 BROKER_HISTORIC_ORDERS_DATA = "broker_historic_orders_data"
 ROLL_STATE_DATA = "roll_state_data"
 
+"""
 use_production_classes = {
     FX_DATA: parquetFxPricesData,
     ROLL_PARAMETERS_DATA: csvRollParametersData,
@@ -81,6 +83,31 @@ use_production_classes = {
     STRATEGY_POSITION_DATA: parquetStrategyPositionData,
     OPTIMAL_POSITION_DATA: parquetOptimalPositionData,
     HISTORIC_SPREAD_DATA: parquetSpreadsForInstrumentData,
+    STRATEGY_HISTORIC_ORDERS_DATA: mongoStrategyHistoricOrdersData,
+    CONTRACT_HISTORIC_ORDERS_DATA: mongoContractHistoricOrdersData,
+    BROKER_HISTORIC_ORDERS_DATA: mongoBrokerHistoricOrdersData,
+    INSTRUMENT_ORDER_STACK_DATA: mongoInstrumentOrderStackData,
+    CONTRACT_ORDER_STACK_DATA: mongoContractOrderStackData,
+    BROKER_ORDER_STACK_DATA: mongoBrokerOrderStackData,
+    ROLL_STATE_DATA: mongoRollStateData,
+    PROCESS_CONTROL_DATA: mongoControlProcessData,
+}
+"""
+
+use_production_classes = {
+    FX_DATA: arcticFxPricesData,
+    ROLL_PARAMETERS_DATA: csvRollParametersData,
+    FUTURES_INSTRUMENT_DATA: csvFuturesInstrumentData,
+    FUTURES_CONTRACT_DATA: mongoFuturesContractData,
+    STORED_SPREAD_DATA: mongoSpreadCostData,
+    FUTURES_CONTRACT_PRICE_DATA: arcticFuturesContractPriceData,
+    FUTURES_MULTIPLE_PRICE_DATA: arcticFuturesMultiplePricesData,
+    FUTURES_ADJUSTED_PRICE_DATA: arcticFuturesAdjustedPricesData,
+    CAPITAL_DATA: arcticCapitalData,
+    CONTRACT_POSITION_DATA: arcticContractPositionData,
+    STRATEGY_POSITION_DATA: arcticStrategyPositionData,
+    OPTIMAL_POSITION_DATA: arcticOptimalPositionData,
+    HISTORIC_SPREAD_DATA: arcticSpreadsForInstrumentData,
     STRATEGY_HISTORIC_ORDERS_DATA: mongoStrategyHistoricOrdersData,
     CONTRACT_HISTORIC_ORDERS_DATA: mongoContractHistoricOrdersData,
     BROKER_HISTORIC_ORDERS_DATA: mongoBrokerHistoricOrdersData,
