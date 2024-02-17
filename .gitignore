@@ -1,3 +1,4 @@
+asinus/
 .cache
 __pycache__
 *.egg-info
@@ -28,3 +29,4 @@ venv/
 
 # libreoffice
 .~lock.*
+mongodb-compass_1.40.4_amd64.deb
