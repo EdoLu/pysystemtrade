@@ -85,8 +85,45 @@ def seed_price_data_for_contract_at_frequency(
 
 if __name__ == "__main__":
     print("Get initial price data from IB")
-    instrument_code = input("Instrument code? <return to abort> ")
-    if instrument_code == "":
-        exit()
-
-    seed_price_data_from_IB(instrument_code)
+    instrument_code_list = [
+    'CORN',
+    'LEANHOG',
+    'LIVECOW',
+    'OATIES',
+    'SOYBEAN_mini',
+    'SOYMEAL',
+    'WHEAT',
+    'KR10',
+    'BOBL',
+    'BTP',
+    'US10',
+    'US5',
+    'KOSDAQ',
+    'DAX',
+    'DOW',
+    'FTSECHINAA',
+    'NIKKEI',
+    'RUSSELL', 'BRE', 'CNH',
+    'GBP',
+    'MXP',
+    'NZD',
+    'YENEUR',
+    'GOLD_micro',
+    'IRON',
+    'PLAT',
+    'SILVER',
+    'CRUDE_W_micro',
+    'HEATOIL',
+    'URANIUM',
+    'GAS_US_mini',
+    'EU-OIL',
+    'EU-TRAVEL',
+    'EU-UTILS',
+    'VIX'
+    ]
+    
+    for instrument_code in instrument_code_list:
+        # instrument_code = input("Instrument code? <return to abort> ")
+        # if instrument_code == "":
+        # exit()
+        seed_price_data_from_IB(instrument_code)
