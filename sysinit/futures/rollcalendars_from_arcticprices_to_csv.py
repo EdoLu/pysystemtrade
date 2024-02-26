@@ -55,6 +55,17 @@ def build_and_write_roll_calendar(
     dict_of_all_futures_contract_prices = prices.get_merged_prices_for_instrument(
         instrument_code
     )
+    # old location, moved below.
+    # dict_of_futures_contract_prices = dict_of_all_futures_contract_prices.final_prices()
+
+    # added these lines to avoid empty contract prices generating errors.
+    dict_of_all_futures_contract_prices_copy = dict(dict_of_all_futures_contract_prices)
+    for key in dict_of_all_futures_contract_prices_copy.keys():
+        if (dict_of_all_futures_contract_prices_copy[key]).index.size == 0:
+            dict_of_all_futures_contract_prices.pop(key)
+
+    del dict_of_all_futures_contract_prices_copy
+    # new location.
     dict_of_futures_contract_prices = dict_of_all_futures_contract_prices.final_prices()
 
     # might take a few seconds
@@ -129,4 +140,4 @@ if __name__ == "__main__":
     instrument_code = get_valid_instrument_code_from_user(source="single")
     ## MODIFY DATAPATH IF REQUIRED
     # build_and_write_roll_calendar(instrument_code, output_datapath=arg_not_supplied)
-    build_and_write_roll_calendar(instrument_code, output_datapath="/home/rob/")
+    build_and_write_roll_calendar(instrument_code, output_datapath="/home/xuser/data/roll_calendars")
