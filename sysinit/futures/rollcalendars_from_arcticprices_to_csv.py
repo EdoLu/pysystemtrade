@@ -16,7 +16,7 @@ from sysdata.data_blob import dataBlob
 
 diag_prices = diagPrices()
 
-parquet_futures_contract_price_data = diag_prices.db_futures_contract_price_data
+db_prices = diag_prices.db_futures_contract_price_data
 
 """
 Generate a 'best guess' roll calendar based on some price data for individual contracts
@@ -41,7 +41,7 @@ def build_and_write_roll_calendar(
         print("Writing to %s" % output_datapath)
 
     if input_prices is arg_not_supplied:
-        prices = parquet_futures_contract_price_data
+        prices = db_prices
     else:
         prices = input_prices
 
@@ -56,17 +56,17 @@ def build_and_write_roll_calendar(
         instrument_code
     )
     # old location, moved below.
-    # dict_of_futures_contract_prices = dict_of_all_futures_contract_prices.final_prices()
-
-    # added these lines to avoid empty contract prices generating errors.
-    dict_of_all_futures_contract_prices_copy = dict(dict_of_all_futures_contract_prices)
-    for key in dict_of_all_futures_contract_prices_copy.keys():
-        if (dict_of_all_futures_contract_prices_copy[key]).index.size == 0:
-            dict_of_all_futures_contract_prices.pop(key)
-
-    del dict_of_all_futures_contract_prices_copy
-    # new location.
     dict_of_futures_contract_prices = dict_of_all_futures_contract_prices.final_prices()
+
+    # # added these lines to avoid empty contract prices generating errors.
+    # dict_of_all_futures_contract_prices_copy = dict(dict_of_all_futures_contract_prices)
+    # for key in dict_of_all_futures_contract_prices_copy.keys():
+    #     if (dict_of_all_futures_contract_prices_copy[key]).index.size == 0:
+    #         dict_of_all_futures_contract_prices.pop(key)
+    #
+    # del dict_of_all_futures_contract_prices_copy
+    # # new location.
+    # dict_of_futures_contract_prices = dict_of_all_futures_contract_prices.final_prices()
 
     # might take a few seconds
     print("Prepping roll calendar... might take a few seconds")
@@ -115,7 +115,7 @@ def check_saved_roll_calendar(
     roll_calendar = csv_roll_calendars.get_roll_calendar(instrument_code)
 
     if input_prices is arg_not_supplied:
-        prices = parquet_futures_contract_price_data
+        prices = db_prices
     else:
         prices = input_prices
 
