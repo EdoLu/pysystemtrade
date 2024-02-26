@@ -56,17 +56,17 @@ def build_and_write_roll_calendar(
         instrument_code
     )
     # old location, moved below.
-    # dict_of_futures_contract_prices = dict_of_all_futures_contract_prices.final_prices()
-
-    # added these lines to avoid empty contract prices generating errors.
-    dict_of_all_futures_contract_prices_copy = dict(dict_of_all_futures_contract_prices)
-    for key in dict_of_all_futures_contract_prices_copy.keys():
-        if (dict_of_all_futures_contract_prices_copy[key]).index.size == 0:
-            dict_of_all_futures_contract_prices.pop(key)
-
-    del dict_of_all_futures_contract_prices_copy
-    # new location.
     dict_of_futures_contract_prices = dict_of_all_futures_contract_prices.final_prices()
+
+    # # added these lines to avoid empty contract prices generating errors.
+    # dict_of_all_futures_contract_prices_copy = dict(dict_of_all_futures_contract_prices)
+    # for key in dict_of_all_futures_contract_prices_copy.keys():
+    #     if (dict_of_all_futures_contract_prices_copy[key]).index.size == 0:
+    #         dict_of_all_futures_contract_prices.pop(key)
+    #
+    # del dict_of_all_futures_contract_prices_copy
+    # # new location.
+    # dict_of_futures_contract_prices = dict_of_all_futures_contract_prices.final_prices()
 
     # might take a few seconds
     print("Prepping roll calendar... might take a few seconds")
