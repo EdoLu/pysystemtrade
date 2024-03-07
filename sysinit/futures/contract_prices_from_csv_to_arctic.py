@@ -34,6 +34,7 @@ def init_db_with_csv_futures_contract_prices_for_code(
     datapath: str,
     csv_config=arg_not_supplied,
     frequency=MIXED_FREQ,
+    force_copy_to_mixed: bool = False,
 ):
     print(instrument_code)
     csv_prices = csvFuturesContractPriceData(datapath, config=csv_config)
@@ -68,6 +69,16 @@ def init_db_with_csv_futures_contract_prices_for_code(
         # if we're importing hourly or daily, we need to also generate MIXED
         if frequency != MIXED_FREQ:
             create_merged_prices(contract)
+
+        # some instruments have ONLY daily prices. We need to copy those daily
+        # prices into MIXED_FREQ
+        if force_copy_to_mixed:
+            db_prices.write_prices_at_frequency_for_contract_object(
+                contract,
+                prices_for_contract,
+                ignore_duplication=True,
+                frequency=MIXED_FREQ,
+            )
 
 
 def create_merged_prices(contract):
