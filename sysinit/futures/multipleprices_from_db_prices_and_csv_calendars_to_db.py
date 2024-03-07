@@ -50,7 +50,7 @@ def process_multiple_prices_all_instruments(
     csv_multiple_data_path=arg_not_supplied,
     csv_roll_data_path=arg_not_supplied,
     ADD_TO_DB=True,
-    ADD_TO_CSV=False,
+    ADD_TO_CSV=True,
 ):
     (
         _not_used1,
@@ -192,7 +192,7 @@ def add_phantom_row(
 if __name__ == "__main__":
     input("Will overwrite existing prices are you sure?! CTL-C to abort")
     # change if you want to write elsewhere
-    csv_multiple_data_path = arg_not_supplied
+    csv_multiple_data_path = "/home/xuser/data/multiple_prices" # arg_not_supplied
 
     # only change if you have written the files elsewhere
     csv_roll_data_path = arg_not_supplied
@@ -200,5 +200,5 @@ if __name__ == "__main__":
     # modify flags as required
     process_multiple_prices_all_instruments(
         csv_multiple_data_path=csv_multiple_data_path,
-        csv_roll_data_path=csv_roll_data_path,
+        csv_roll_data_path=csv_roll_data_path
     )
