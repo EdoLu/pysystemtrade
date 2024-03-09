@@ -5,14 +5,18 @@ instrument_barchart_set = {
  "CORN",
  "CRUDE_W_micro",
  "DOW",
+ "EU-UTILS",
  "FTSECHINAA",
  "GAS_US_mini",
  "GOLD_micro",
  "LEANHOG",
  "LIVECOW",
  "MXP",
+ "PLAT",
  "RUSSELL",
  "SOYBEAN_mini",
+ "SOYMEAL",
+ "US10",
  "VIX",
  "WHEAT"
 }

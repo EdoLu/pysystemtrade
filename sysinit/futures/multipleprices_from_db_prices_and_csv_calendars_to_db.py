@@ -27,6 +27,7 @@ from sysdata.csv.csv_roll_parameters import csvRollParametersData
 from sysinit.futures.build_roll_calendars import adjust_to_price_series
 from sysobjects.multiple_prices import futuresMultiplePrices
 
+from sysproduction.data.prices import get_valid_instrument_code_from_user
 from sysdata.data_blob import dataBlob
 
 diag_prices = diagPrices()
@@ -198,7 +199,20 @@ if __name__ == "__main__":
     csv_roll_data_path = arg_not_supplied
 
     # modify flags as required
-    process_multiple_prices_all_instruments(
+    # process_multiple_prices_all_instruments(
+    #     csv_multiple_data_path=csv_multiple_data_path,
+    #     csv_roll_data_path=csv_roll_data_path
+    # )
+
+    instrument_code = get_valid_instrument_code_from_user(source="single")
+    process_multiple_prices_single_instrument(
+        instrument_code,
+        target_instrument_code=arg_not_supplied,
+        adjust_calendar_to_prices=True,
         csv_multiple_data_path=csv_multiple_data_path,
-        csv_roll_data_path=csv_roll_data_path
+        csv_roll_data_path=csv_roll_data_path,
+        roll_parameters=arg_not_supplied,
+        roll_calendar=arg_not_supplied,
+        ADD_TO_DB=True,
+        ADD_TO_CSV=False,
     )
