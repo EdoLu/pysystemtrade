@@ -191,7 +191,7 @@ def add_phantom_row(
 
 
 if __name__ == "__main__":
-    input("Will overwrite existing prices are you sure?! CTL-C to abort")
+    # input("Will overwrite existing prices are you sure?! CTL-C to abort")
     # change if you want to write elsewhere
     csv_multiple_data_path = "/home/xuser/data/multiple_prices" # arg_not_supplied
 
