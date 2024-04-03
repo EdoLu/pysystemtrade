@@ -32,4 +32,5 @@ venv/
 mongodb-compass_1.40.4_amd64.deb
 sysproduction/linux/scripts/run_test_run
 sysproduction/run_test_run.py
-
+data/futures/adjusted_prices_csv/
+data/futures/roll_calendars_csv/
