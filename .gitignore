@@ -30,3 +30,6 @@ venv/
 # libreoffice
 .~lock.*
 mongodb-compass_1.40.4_amd64.deb
+sysproduction/linux/scripts/run_test_run
+sysproduction/run_test_run.py
+

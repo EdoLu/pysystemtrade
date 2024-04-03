@@ -1,2 +1,2 @@
 . ~/.profile
-python3 $SCRIPT_PATH/run.py $1
+$HOME/pysystemtrade/asinus/bin/python $SCRIPT_PATH/run.py $1
