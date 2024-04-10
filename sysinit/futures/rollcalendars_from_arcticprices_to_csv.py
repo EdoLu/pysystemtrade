@@ -11,7 +11,7 @@ from sysproduction.data.production_data_objects import (
     get_class_for_data_type,
     FUTURES_CONTRACT_PRICE_DATA,
 )
-
+from sysinit.futures.instrument_barchart_sets import instrument_barchart_set
 from sysdata.data_blob import dataBlob
 
 diag_prices = diagPrices()
@@ -137,7 +137,10 @@ def check_saved_roll_calendar(
 
 if __name__ == "__main__":
     # input("Will overwrite existing roll calendar are you sure?! CTL-C to abort")
-    instrument_code = get_valid_instrument_code_from_user(source="single")
+    # instrument_code = "BOBL"# get_valid_instrument_code_from_user(source="single")
     # MODIFY DATAPATH IF REQUIRED
     # build_and_write_roll_calendar(instrument_code, output_datapath=arg_not_supplied)
-    build_and_write_roll_calendar(instrument_code, output_datapath="/home/xuser/data/roll_calendars")
+
+    for instrument_code in instrument_barchart_set:
+        print(instrument_code)
+        build_and_write_roll_calendar(instrument_code, output_datapath="/home/xuser/data/roll_calendars")

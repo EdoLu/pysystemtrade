@@ -12,6 +12,7 @@ from sysobjects.instruments import (
 from syslogging.logger import *
 import pandas as pd
 
+INSTRUMENT_CONFIG_PATH_TEST = "/home/xuser/pysystemtrade/data/futures/csvconfig/instrumentconfig.csv"
 INSTRUMENT_CONFIG_PATH = "data.futures.csvconfig"
 CONFIG_FILE_NAME = "instrumentconfig.csv"
 
@@ -86,7 +87,8 @@ class csvFuturesInstrumentData(futuresInstrumentData):
 
     def _load_and_store_instrument_csv_as_df(self) -> pd.DataFrame:
         try:
-            config_data = pd.read_csv(self.config_file)
+            config_data = pd.read_csv(INSTRUMENT_CONFIG_PATH_TEST)
+            # config_data = pd.read_csv(self.config_file)
         except BaseException:
             raise Exception("Can't read file %s" % self.config_file)
 

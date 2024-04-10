@@ -10,7 +10,7 @@ from sysdata.csv.csv_adjusted_prices import csvFuturesAdjustedPricesData
 from sysobjects.adjusted_prices import futuresAdjustedPrices
 
 from sysproduction.data.prices import diagPrices
-
+from sysinit.futures.instrument_barchart_sets import instrument_barchart_set
 from sysproduction.data.prices import get_valid_instrument_code_from_user
 
 diag_prices = diagPrices()
@@ -78,12 +78,14 @@ if __name__ == "__main__":
     #     csv_adj_data_path=arg_not_supplied, ADD_TO_DB=True, ADD_TO_CSV=True
     # )
 
-    instrument_code = get_valid_instrument_code_from_user(source="single")
+    for instrument_code in instrument_barchart_set:
+        print(instrument_code)
+        # instrument_code = get_valid_instrument_code_from_user(source="single")
 
-    process_adjusted_prices_single_instrument(
-        instrument_code,
-        csv_adj_data_path=arg_not_supplied,
-        multiple_prices=arg_not_supplied,
-        ADD_TO_DB=True,
-        ADD_TO_CSV=True,
-    )
+        process_adjusted_prices_single_instrument(
+            instrument_code,
+            csv_adj_data_path=arg_not_supplied,
+            multiple_prices=arg_not_supplied,
+            ADD_TO_DB=True,
+            ADD_TO_CSV=True,
+        )

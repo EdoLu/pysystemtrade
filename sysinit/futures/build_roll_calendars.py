@@ -99,15 +99,16 @@ def _create_approx_calendar_from_earliest_contract(
     final_contract_date_str = dict_of_futures_contract_prices.last_contract_date_str()
     current_contract = earliest_contract_with_roll_data
 
-    while current_contract.date_str < final_contract_date_str:
+    while current_contract.date_str <= final_contract_date_str:
         current_contract.update_expiry_with_offset_from_parameters()
         next_contract, new_row = _get_new_row_of_roll_calendar(current_contract)
-        if new_row is _bad_row:
-            break
 
         roll_calendar_as_list.append(new_row)
         current_contract = copy(next_contract)
         print(current_contract)
+
+        if new_row is _bad_row:
+            break
 
     roll_calendar = roll_calendar_as_list.to_pd_df()
 

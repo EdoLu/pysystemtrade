@@ -21,29 +21,32 @@ if __name__ == "__main__":
 
 	# assuming bc-utils config pasted into private
 	data_path = resolve_path_and_filename_for_package(get_production_config().get_element_or_default("barchart_path", None))
-	print("Insert instrument code:\n")
-	instrument_code: str = input()
-	if instrument_code not in instrument_barchart_set:
-		raise ValueError
+	# print("Insert instrument code:\n")
+	# instrument_code: str = input()
+	for instrument_code in instrument_barchart_set:
+		# if instrument_code not in instrument_barchart_set:
+		# 	raise ValueError
 
-	if instrument_code not in instrument_barchart_set_no_hourly:
-		init_db_with_csv_futures_contract_prices_for_code(
-			instrument_code,
-			data_path,
-			csv_config=BARCHART_CONFIG,
-			frequency=DAILY_PRICE_FREQ
-		)
-		init_db_with_csv_futures_contract_prices_for_code(
-			instrument_code,
-			data_path,
-			csv_config=BARCHART_CONFIG,
-			frequency=HOURLY_FREQ
-		)
-	else:
-		init_db_with_csv_futures_contract_prices_for_code(
-			instrument_code,
-			data_path,
-			csv_config=BARCHART_CONFIG,
-			frequency=DAILY_PRICE_FREQ,
-			force_copy_to_mixed=True
-		)
+		print("Inserting instrument code: " + str(instrument_code))
+
+		if instrument_code not in instrument_barchart_set_no_hourly:
+			init_db_with_csv_futures_contract_prices_for_code(
+				instrument_code,
+				data_path,
+				csv_config=BARCHART_CONFIG,
+				frequency=DAILY_PRICE_FREQ
+			)
+			init_db_with_csv_futures_contract_prices_for_code(
+				instrument_code,
+				data_path,
+				csv_config=BARCHART_CONFIG,
+				frequency=HOURLY_FREQ
+			)
+		else:
+			init_db_with_csv_futures_contract_prices_for_code(
+				instrument_code,
+				data_path,
+				csv_config=BARCHART_CONFIG,
+				frequency=DAILY_PRICE_FREQ,
+				force_copy_to_mixed=True
+			)

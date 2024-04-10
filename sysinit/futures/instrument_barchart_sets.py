@@ -1,18 +1,20 @@
 instrument_barchart_set = {
- "BRE",
  "BOBL",
+ "BRE",
  "BTP",
+ "CHEESE",
+ "CNH",
  "CORN",
  "CRUDE_W_micro",
- "CNH",
  "DAX",
  "DOW",
- "EU-UTILS",
+ "EUROSTX",
  "FTSECHINAA",
  "GAS_US_mini",
  "GBP",
  "GOLD_micro",
  "HEATOIL",
+ "IRON",
  "LEANHOG",
  "LIVECOW",
  "MXP",
@@ -23,12 +25,18 @@ instrument_barchart_set = {
  "SILVER",
  "SOYBEAN_mini",
  "SOYMEAL",
+ "SOYOIL",
+ "SP500_micro",
  "US10",
+ "US5",
+ "V2X",
  "VIX",
- "WHEAT"
+ "WHEAT",
+ "YENEUR"
 }
 
 instrument_barchart_set_no_hourly = {
  "FTSECHINAA",
- "CNH"
+ "CNH",
+ "IRON"
 }

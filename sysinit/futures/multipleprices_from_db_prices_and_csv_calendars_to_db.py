@@ -26,7 +26,7 @@ from sysdata.csv.csv_multiple_prices import csvFuturesMultiplePricesData
 from sysdata.csv.csv_roll_parameters import csvRollParametersData
 from sysinit.futures.build_roll_calendars import adjust_to_price_series
 from sysobjects.multiple_prices import futuresMultiplePrices
-
+from sysinit.futures.instrument_barchart_sets import instrument_barchart_set
 from sysproduction.data.prices import get_valid_instrument_code_from_user
 from sysdata.data_blob import dataBlob
 
@@ -204,15 +204,18 @@ if __name__ == "__main__":
     #     csv_roll_data_path=csv_roll_data_path
     # )
 
-    instrument_code = get_valid_instrument_code_from_user(source="single")
-    process_multiple_prices_single_instrument(
-        instrument_code,
-        target_instrument_code=arg_not_supplied,
-        adjust_calendar_to_prices=True,
-        csv_multiple_data_path=csv_multiple_data_path,
-        csv_roll_data_path=csv_roll_data_path,
-        roll_parameters=arg_not_supplied,
-        roll_calendar=arg_not_supplied,
-        ADD_TO_DB=True,
-        ADD_TO_CSV=False,
-    )
+    for instrument_code in instrument_barchart_set:
+        print(instrument_code)
+
+        # instrument_code = get_valid_instrument_code_from_user(source="single")
+        process_multiple_prices_single_instrument(
+            instrument_code,
+            target_instrument_code=arg_not_supplied,
+            adjust_calendar_to_prices=True,
+            csv_multiple_data_path=csv_multiple_data_path,
+            csv_roll_data_path=csv_roll_data_path,
+            roll_parameters=arg_not_supplied,
+            roll_calendar=arg_not_supplied,
+            ADD_TO_DB=True,
+            ADD_TO_CSV=False,
+        )
