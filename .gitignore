@@ -34,3 +34,9 @@ sysproduction/linux/scripts/run_test_run
 sysproduction/run_test_run.py
 data/futures/adjusted_prices_csv/
 data/futures/roll_calendars_csv/
+data/backups_csv/
+sysproduction/data/backups_csv/
+sysproduction/data/futures/
+sysproduction/data/mongo_dump/
+sysproduction/email.log
+
