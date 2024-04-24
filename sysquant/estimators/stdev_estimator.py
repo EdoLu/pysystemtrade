@@ -45,7 +45,10 @@ class seriesOfStdevEstimates(pd.DataFrame):
             stdev_as_dict = get_row_of_df_aligned_to_weights_as_dict(
                 df=self, relevant_date=self.index[0]
             )
-
+        elif relevant_date > self.index[-1]:
+            stdev_as_dict = get_row_of_df_aligned_to_weights_as_dict(
+                df=self, relevant_date=self.index[-1]
+            )
         else:
             stdev_as_dict = get_row_of_df_aligned_to_weights_as_dict(
                 df=self, relevant_date=relevant_date
