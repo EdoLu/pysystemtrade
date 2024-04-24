@@ -10,7 +10,7 @@ from sysdata.csv.csv_adjusted_prices import csvFuturesAdjustedPricesData
 from sysobjects.adjusted_prices import futuresAdjustedPrices
 
 from sysproduction.data.prices import diagPrices
-from sysinit.futures.instrument_barchart_sets import instrument_barchart_set
+from sysinit.futures.instrument_sets import instrument_set
 from sysproduction.data.prices import get_valid_instrument_code_from_user
 
 diag_prices = diagPrices()
@@ -72,13 +72,14 @@ def process_adjusted_prices_single_instrument(
 
 
 if __name__ == "__main__":
-    # input("Will overwrite existing prices are you sure?! CTL-C to abort")
+    # input("Will ov erwrite existing prices are you sure?! CTL-C to abort")
     # modify flags and datapath as required
     # process_adjusted_prices_all_instruments(
     #     csv_adj_data_path=arg_not_supplied, ADD_TO_DB=True, ADD_TO_CSV=True
     # )
+    # instrument_set = ['BBCOMM']
 
-    for instrument_code in instrument_barchart_set:
+    for instrument_code in instrument_set:
         print(instrument_code)
         # instrument_code = get_valid_instrument_code_from_user(source="single")
 

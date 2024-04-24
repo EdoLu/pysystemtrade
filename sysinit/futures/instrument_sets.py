@@ -1,4 +1,5 @@
-instrument_barchart_set = {
+instrument_set = {
+ "BBCOMM",
  "BOBL",
  "BRE",
  "BTP",
@@ -35,8 +36,14 @@ instrument_barchart_set = {
  "YENEUR"
 }
 
-instrument_barchart_set_no_hourly = {
+instrument_set_no_hourly = {
  "FTSECHINAA",
  "CNH",
  "IRON"
+}
+
+instrument_set_IB = {
+ "KR10",
+ "KOSDAQ",
+ "LUMBER-new"
 }

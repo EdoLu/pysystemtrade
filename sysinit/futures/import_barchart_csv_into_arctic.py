@@ -6,7 +6,7 @@ from sysinit.futures.contract_prices_from_csv_to_arctic import (
 	# init_db_with_csv_futures_contract_prices,
 	init_db_with_csv_futures_contract_prices_for_code
 )
-from sysinit.futures.instrument_barchart_sets import instrument_barchart_set, instrument_barchart_set_no_hourly
+from sysinit.futures.instrument_sets import instrument_set, instrument_set_no_hourly
 
 if __name__ == "__main__":
 	BARCHART_CONFIG = ConfigCsvFuturesPrices(
@@ -23,13 +23,14 @@ if __name__ == "__main__":
 	data_path = resolve_path_and_filename_for_package(get_production_config().get_element_or_default("barchart_path", None))
 	# print("Insert instrument code:\n")
 	# instrument_code: str = input()
-	for instrument_code in instrument_barchart_set:
+	# instrument_set_BC = ["BBCOMM"]
+	for instrument_code in instrument_set:
 		# if instrument_code not in instrument_barchart_set:
 		# 	raise ValueError
 
 		print("Inserting instrument code: " + str(instrument_code))
 
-		if instrument_code not in instrument_barchart_set_no_hourly:
+		if instrument_code not in instrument_set_no_hourly:
 			init_db_with_csv_futures_contract_prices_for_code(
 				instrument_code,
 				data_path,
