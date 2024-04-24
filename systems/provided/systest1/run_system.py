@@ -14,7 +14,7 @@ from systems.forecast_combine import ForecastCombine
 from systems.provided.attenuate_vol.vol_attenuation_forecast_scale_cap import (
     volAttenForecastScaleCap,
 )
-from systems.provided.rob_system.rawdata import myFuturesRawData
+from systems.rawdata import RawData as myFuturesRawData  # I changed this one
 from systems.positionsizing import PositionSizing
 from systems.portfolio import Portfolios
 from systems.provided.dynamic_small_system_optimise.optimised_positions_stage import (

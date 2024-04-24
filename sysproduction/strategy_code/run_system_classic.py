@@ -39,9 +39,10 @@ class runSystemClassic(object):
         self,
         data: dataBlob,
         strategy_name: str,
-        backtest_config_filename=arg_not_supplied,
+        backtest_config_filename="systems.provided.systest1.config.yaml", # arg_not_supplied,
     ):
         if backtest_config_filename is arg_not_supplied:
+            # backtest_config_filename = "systems.provided.systest1.config.yaml"
             raise Exception("Need to supply config filename")
 
         self.data = data

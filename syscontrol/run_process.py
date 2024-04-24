@@ -165,6 +165,7 @@ def _start_or_wait(process_to_run: processToRun):
     waiting = True
     while waiting:
         okay_to_start = _is_okay_to_start(process_to_run)
+        okay_to_start = True
         if okay_to_start:
             return
 
